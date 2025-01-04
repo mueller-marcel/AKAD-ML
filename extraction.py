@@ -1,8 +1,8 @@
-def extract_data_from_arxiv():
-    import arxiv
-    import pandas as pd
-    from arxiv import SortCriterion, Search
+import pandas as pd
+import arxiv
+from arxiv import SortCriterion, Search
 
+def extract_data_from_arxiv() -> pd.DataFrame:
     # Variables
     articles = []
     years = [2018, 2019, 2020, 2021]
