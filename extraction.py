@@ -18,7 +18,6 @@ def extract_data_from_arxiv() -> pd.DataFrame:
         search = Search(
             query=search_query,
             max_results=number_of_articles,
-            sort_by=SortCriterion.SubmittedDate,
         )
 
         # Request the articles
@@ -30,7 +29,7 @@ def extract_data_from_arxiv() -> pd.DataFrame:
                 "Title": result.title,
                 "Authors": result.authors,
                 "Abstract": result.summary,
-                "PublishedDate": result.published.date().year,
+                "PublishedDate": result.published.date(),
             }
             articles.append(article)
 
