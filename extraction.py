@@ -27,7 +27,7 @@ def extract_data_from_arxiv() -> pd.DataFrame:
         for result in results:
             article = {
                 "Title": result.title,
-                "Authors": result.authors,
+                "Authors": [str(author) for author in result.authors],
                 "Abstract": result.summary,
                 "PublishedDate": result.published.date(),
             }
