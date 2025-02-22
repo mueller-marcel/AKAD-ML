@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def prepare_data(df: pd.DataFrame, years: list, show_histograms: bool) -> pd.DataFrame:
+def prepare_data(df: pd.DataFrame, years: list, show_histograms: bool, explode_authors: bool) -> pd.DataFrame:
 
     # Ensure PublishedDate is in datetime format
     df["PublishedDate"] = pd.to_datetime(df["PublishedDate"], errors="coerce")
@@ -9,8 +9,9 @@ def prepare_data(df: pd.DataFrame, years: list, show_histograms: bool) -> pd.Dat
     # Drop rows with null values in Authors or PublishedDate
     df = df.dropna(subset=["Authors", "PublishedDate"])
 
-    # Expand the possible multiple authors of a paper to an own entry for each author
-    df = df.explode(column="Authors")
+    if explode_authors:
+        # Expand the possible multiple authors of a paper to an own entry for each author
+        df = df.explode(column="Authors")
 
     # Define the years to analyze
     years = range(2018, 2022)
