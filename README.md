@@ -14,3 +14,7 @@ pip install -r requirements.txt
 
 > [!NOTE]  
 > Der Code für die Extraktion der Daten von ArXiv, sowie die Datenaufbereitung sind in den ersten beiden Codezellen erläutert und in den folgenden Zellen aus den Dateien `extraction.py` und `preparation.py` importiert.
+
+## Quellcode
+
+Link zum [GitHub-Repository](https://github.com/mueller-marcel/AKAD-ML)
